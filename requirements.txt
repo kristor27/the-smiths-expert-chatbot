@@ -1,0 +1,15 @@
+streamlit
+langchain
+langgraph
+cassio
+langchain_community
+tiktoken
+langchain-openai
+langchainhub
+langchain_huggingface
+wikipedia
+beautifulsoup4
+requests
+pillow
+matplotlib
+networkx
