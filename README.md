@@ -23,23 +23,18 @@ The Smiths Expert is an AI-powered chatbot application designed to answer questi
 ## Setup and Installation
 
 1. **Clone the Repository**:
-
-  - git clone https://github.com/kristor27/the-smiths-expert-chatbot.git
-  - cd thesmithsexpert
+git clone https://github.com/kristor27/the-smiths-expert-chatbot.git
 
 
 2. **Install Dependencies**:
+pip install -r requirements.txt
 
-  - pip install -r requirements.txt
+3. **Run the Application**:
+streamlit run app.py
 
-
-3. **Environment Variables**:
+4. **Environment Variables**:
    - Set up your OpenAI API key.
-   - Configure access to your Astra DB for vector storage.
-
-4. **Run the Application**:
-5. 
-  - streamlit run app.py
+   - Configure access to your Astra DB vector-db for vector storage and retrieval.
 
 
 ## Contact and collaborations
