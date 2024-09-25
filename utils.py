@@ -63,7 +63,7 @@ def store_documents_in_astradb(documents):
   embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
   astra_vector_store = Cassandra(
       embedding=embeddings,
-      table_name="smiths_lyrics_11",
+      table_name="smiths_songs_all",
       session=None,
       keyspace=None
   )

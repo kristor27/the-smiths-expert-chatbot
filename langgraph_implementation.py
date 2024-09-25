@@ -27,7 +27,7 @@ def initialize_cassandra(token, database_id):
   embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
   astra_vector_store = Cassandra(
       embedding=embeddings,
-      table_name="smiths_lyrics_new",
+      table_name="smiths_songs_all",
       session=None,
       keyspace=None
   )
@@ -132,10 +132,13 @@ def run_app(app, question, openai_api_key):
     inputs = {"question": question, "openai_api_key": openai_api_key}
     tool_response = ""
     final_answer = ""
+    key_name= ""
     for output in app.stream(inputs):
       for key, value in output.items():
           if key in ["retrieve", "wiki_search"]:
               tool_response = "\n".join([doc.page_content if hasattr(doc, 'page_content') else str(doc) for doc in value['documents']])
+              key_name=key
           elif key == "generate_final_answer":
-              final_answer = value['generation']     
-    return {"tool_response": tool_response, "final_answer": final_answer}
+              final_answer = value['generation']
+        
+    return {"tool_response": tool_response, "final_answer": final_answer, "tool_name": key_name}
